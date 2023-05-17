@@ -1,0 +1,25 @@
+{
+  "name": "pilates-haven-nyc-back-end",
+  "version": "1.0.0",
+  "description": "Pilates NYC Backend route",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laura-williams-1/pilates-haven-nyc-back-end.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/laura-williams-1/pilates-haven-nyc-back-end/issues"
+  },
+  "homepage": "https://github.com/laura-williams-1/pilates-haven-nyc-back-end#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.22"
+  }
+}
