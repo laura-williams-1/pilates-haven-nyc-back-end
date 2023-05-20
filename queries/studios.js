@@ -1,4 +1,4 @@
-const db = require("../db/dbCongif.js");
+const db = require("../db/dbConfig");
 
 const getAllStudios = async () => {
   try {
@@ -9,6 +9,15 @@ const getAllStudios = async () => {
   }
 };
 
+const getAStudio = async (id) => {
+  try {
+    const studio = await db.one("SELECT * FROM studios WHERE id=$1");
+    return studio;
+  } catch (error) {
+    return error;
+  }
+};
 module.exports = {
   getAllStudios,
+  getAStudio,
 };

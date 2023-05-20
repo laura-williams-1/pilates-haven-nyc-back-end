@@ -1,4 +1,4 @@
-const pgp = require("pg-promise");
+const pgPromise = require("pg-promise")();
 
 require("dotenv").config();
 
@@ -8,5 +8,6 @@ const cn = {
   database: process.env.PG_DATABASE,
   user: process.env.PG_USER,
 };
+const db = pgPromise(cn);
 
-module.exports = pgp(cn);
+module.exports = db;
