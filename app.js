@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
-const studiosController = require("./Controllers/productsController");
+const studiosController = require("./Controllers/studioController");
 
 app.use(cors());
 app.use(express.json());
