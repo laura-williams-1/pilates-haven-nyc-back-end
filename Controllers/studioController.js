@@ -22,4 +22,5 @@ studios.get("/:id", async (req, res) => {
     res.status(500).json({ error: "Service Error" });
   }
 });
+
 module.exports = studios;
