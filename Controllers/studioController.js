@@ -14,12 +14,12 @@ studios.get("/", async (req, res) => {
 
 studios.get("/:id", async (req, res) => {
   const { id } = req.params;
-  const studio = await getAStudio();
+  const studio = await getAStudio(id);
 
   if (studio.id) {
     res.status(200).json(studio);
   } else {
-    res.status(500).json({ error: error });
+    res.status(500).json({ error: "Service Error" });
   }
 });
 module.exports = studios;
