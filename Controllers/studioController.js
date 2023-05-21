@@ -1,6 +1,10 @@
 const express = require("express");
 const studios = express.Router();
-const { getAllStudios, getAStudio } = require("../queries/studios");
+const {
+  getAllStudios,
+  getAStudio,
+  createAStudio,
+} = require("../queries/studios");
 
 studios.get("/", async (req, res) => {
   const allStudios = await getAllStudios();
@@ -23,4 +27,14 @@ studios.get("/:id", async (req, res) => {
   }
 });
 
+studios.post("/", async (req, res) => {
+  const newStudio = req.body;
+  try {
+    const addedStudio = await createAStudio(newStudio);
+    res.status(200).json(addedStudio);
+  } catch (error) {
+    res.status(500).json({ error: error });
+  }
+});
+studios.get;
 module.exports = studios;
