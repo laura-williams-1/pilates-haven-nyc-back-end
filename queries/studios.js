@@ -49,8 +49,63 @@ const createAStudio = async (studioToAdd) => {
     return error;
   }
 };
+
+const updateStudio = async (id, studio) => {
+  const {
+    name,
+    address,
+    zipcode,
+    city,
+    state,
+    phone_number,
+    email,
+    website_url,
+    instagram_handle,
+    description,
+    specialization,
+    offers_group,
+    offers_mat,
+    offers_reformer,
+    offers_duets,
+    offers_privates,
+    offers_membership,
+    offers_new_client_deal,
+    is_black_owned,
+  } = studio;
+
+  try {
+    editedStudio = await db.one(
+      "UPDATE studios SET name = $1, address = $2, zipcode = $3, city = $4, state = $5, phone_number = $6, email = $7, website_url = $8, instagram_handle = $9, description = $10, specialization = $11, offers_group = $12, offers_mat =$13, offers_reformer = $14, offers_duets = $15, offers_privates = $16 , offers_membership = $17, offers_new_client_deal = $18, is_black_owned = $19",
+      [
+        name,
+        address,
+        zipcode,
+        city,
+        state,
+        phone_number,
+        email,
+        website_url,
+        instagram_handle,
+        description,
+        specialization,
+        offers_group,
+        offers_mat,
+        offers_reformer,
+        offers_duets,
+        offers_privates,
+        offers_membership,
+        offers_new_client_deal,
+        is_black_owned,
+      ]
+    );
+    return editedStudio;
+  } catch (error) {
+    return error;
+  }
+};
 module.exports = {
   getAllStudios,
   getAStudio,
   createAStudio,
+  updateStudio,
 };
