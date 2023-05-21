@@ -104,9 +104,22 @@ const updateStudio = async (id, studio) => {
     return error;
   }
 };
+
+const deleteStudio = async (id) => {
+  try {
+    const deletedStudio = await db.one(
+      "DELETE FROM studios WHERE id=$1 RETURNINF *",
+      id
+    );
+    return deletedStudio;
+  } catch (error) {
+    return error;
+  }
+};
 module.exports = {
   getAllStudios,
   getAStudio,
   createAStudio,
   updateStudio,
+  deleteStudio,
 };
