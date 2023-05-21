@@ -5,6 +5,7 @@ const {
   getAStudio,
   createAStudio,
   updateStudio,
+  deleteStudio,
 } = require("../queries/studios");
 
 studios.get("/", async (req, res) => {
@@ -44,6 +45,17 @@ studios.put("/:id", async (req, res) => {
   try {
     const editStudio = await updateStudio(id, body);
     res.status(200).json(editStudio);
+  } catch (error) {
+    res.status(500).json({ error: error });
+  }
+});
+
+studios.delete("/:id", async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const deletedStudio = await deleteStudio(id);
+    res.status(200).json(deletedStudio);
   } catch (error) {
     res.status(500).json({ error: error });
   }

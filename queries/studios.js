@@ -108,7 +108,7 @@ const updateStudio = async (id, studio) => {
 const deleteStudio = async (id) => {
   try {
     const deletedStudio = await db.one(
-      "DELETE FROM studios WHERE id=$1 RETURNINF *",
+      "DELETE FROM studios WHERE id=$1 RETURNINg *",
       id
     );
     return deletedStudio;
