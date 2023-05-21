@@ -38,10 +38,9 @@ studios.post("/", async (req, res) => {
   }
 });
 
-studios.put("/:id", async () => {
-  const body = req;
+studios.put("/:id", async (req, res) => {
   const { id } = req.params;
-
+  const { body } = req;
   try {
     const editStudio = await updateStudio(id, body);
     res.status(200).json(editStudio);
