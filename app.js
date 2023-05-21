@@ -9,11 +9,11 @@ app.use(express.json());
 app.use("/studios", studiosController);
 
 app.get("/", (req, res) => {
-  app.status(200).response("Welcome to the NYC Pilates Haven");
+  app.status(200).send("Welcome to the NYC Pilates Haven");
 });
 
 app.get("*", (req, res) => {
-  app.status(400).response("Cant't find this site, try again!");
+  app.status(400).send("Cant't find this site, try again!");
 });
 
 module.exports = app;
