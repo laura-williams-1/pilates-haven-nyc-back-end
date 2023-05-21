@@ -4,6 +4,7 @@ const {
   getAllStudios,
   getAStudio,
   createAStudio,
+  updateStudio,
 } = require("../queries/studios");
 
 studios.get("/", async (req, res) => {
@@ -36,5 +37,17 @@ studios.post("/", async (req, res) => {
     res.status(500).json({ error: error });
   }
 });
-studios.get;
+
+studios.put("/:id", async () => {
+  const body = req;
+  const { id } = req.params;
+
+  try {
+    const editStudio = await updateStudio(id, body);
+    res.status(200).json(editStudio);
+  } catch (error) {
+    res.status(500).json({ error: error });
+  }
+});
+
 module.exports = studios;
