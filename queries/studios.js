@@ -6,6 +6,7 @@ const getAllStudios = async () => {
     return allStudios;
   } catch (error) {
     return error;
+    //
   }
 };
 
